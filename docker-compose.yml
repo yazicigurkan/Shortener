@@ -1,0 +1,32 @@
+version: "3.9"
+   
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=django-postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    healthcheck:
+            test: [ "CMD", "pg_isready", "-q", "-d", "django-postgres", "-U", "postgres" ]
+            timeout: 30s
+            interval: 10s
+            retries: 2    
+  web:
+    build: .
+    command: >
+      sh -c "python3 manage.py migrate &&
+             python3 manage.py test &&
+             python3 manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=django-postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - BASE_URL=http://localhost:8000/
+    depends_on:
+      db:
+        condition: service_healthy
+
+
