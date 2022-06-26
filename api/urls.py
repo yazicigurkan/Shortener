@@ -22,8 +22,8 @@ from django.urls import path
 from .views import CreateShortUrlView ,ListUrlsView, redirect
 
 urlpatterns = [
-    path('createurl/',CreateShortUrlView.as_view(),name='Create-Url'),
-    path('listurl/',ListUrlsView.as_view(),name="List-Url"),
+    path('create-url/',CreateShortUrlView.as_view(),name='Create-Url'),
+    path('list-urls/',ListUrlsView.as_view(),name="List-Url"),
     path('<str:shortpath>',redirect),
     url('docs/', schema_view, name="docs"),
 
