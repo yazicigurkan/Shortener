@@ -59,7 +59,7 @@ Verilen Endpointler vasıtası ile kısa urller oluşturup listeleyebilirsiniz.
 
 | Method | URI | Request Body | 
 | ------ | ------ | ------ |
-| POST | http://localhost:8000/create-url/ |"longUrl":"https://www.deliveryhero.com/" |
+| POST | http://localhost:8000/create-url/ |"longUrl":"https://www.facebook.com/" |
 | GET | http://localhost:8000/list-urls/ |
 
 
