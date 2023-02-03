@@ -83,7 +83,7 @@ Aşağıdaki curl örneklerinizi terminalizinde deneyebilirsiniz.
 curl --location --request POST 'http://127.0.0.1:8000/create-url/' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "longUrl":"https://www.deliveryhero.com/"
+    "longUrl":"https://www.facebook.com/"
 }'
 ```
 - List URLs :
